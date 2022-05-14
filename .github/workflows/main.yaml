@@ -25,7 +25,7 @@ jobs:
           export tag=`cat values.yaml | head -n 4 | tail -n 1 | awk '{ print $2}'`
           echo $tag
           cat values.yaml
-          sed -i 's/$tag/$GITHUB_SHA/g' values.yaml
+          sed -i "s/$tag/$GITHUB_SHA/g" values.yaml
           cat values.yaml
           git add values.yaml
           git commit -m "bump image version"
