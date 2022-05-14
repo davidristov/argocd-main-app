@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        
       - name: Bump image tag
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          ls
           ./.github/script.sh
