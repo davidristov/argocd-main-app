@@ -18,7 +18,9 @@ jobs:
         env:
           PAT: ${{ secrets.PAT}}
         run: |
-          git clone https://davidristov:$PAT@github.com/davidristov/argocd-config.git
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git clone https://$PAT@github.com/davidristov/argocd-config.git
           cd argocd-config
           export tag=`cat values.yaml | head -n 4 | tail -n 1 | awk '{ print $2}'`
           sed -i 's/$tag/$GITHUB_SHA/g' values.yaml
