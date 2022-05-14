@@ -14,4 +14,4 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          ${GITHUB_WORKSPACE}/.github/script.sh
+          ./.github/script.sh
