@@ -23,6 +23,7 @@ jobs:
           git clone https://$PAT@github.com/davidristov/argocd-config.git
           cd argocd-config && ls
           export tag=`cat values.yaml | head -n 4 | tail -n 1 | awk '{ print $2}'`
+          echo $tag
           cat values.yaml
           sed -i 's/$tag/$GITHUB_SHA/g' values.yaml
           cat values.yaml
