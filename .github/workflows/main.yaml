@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: Bump image tag
         env:
-          PAT: ${{ secrets.PAT }} 
-        run: echo asd
-	shell: bash
+          PAT: ${{ secrets.PAT }}
+        run: |
+          ./.github/script.sh
