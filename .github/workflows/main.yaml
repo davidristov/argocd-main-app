@@ -16,11 +16,12 @@ jobs:
     steps:
       - name: Bump image tag
         env:
-          PAT: ${{ secrets.PAT}} 
+          PAT: ${{ secrets.PAT }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.email "github-argocd-bot@example.com"
           git config --global user.name "argocd-bot"
-          git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/davidristov/argocd-config.git
+          git clone https://$TOKEN}@github.com/davidristov/argocd-config.git
           cd argocd-config 
           export tag=`cat values.yaml | head -n 4 | tail -n 1 | awk '{ print $2}'`
           sed -i "s/$tag/$GITHUB_SHA/g" values.yaml
