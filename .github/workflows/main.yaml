@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Bump image tag
         env:
-          PAT: ${{ secrets.PAT}}
+          PAT: ${{ secrets.PAT}} 
         run: |
           git config --global user.email "github-argocd-bot@example.com"
           git config --global user.name "argocd-bot"
