@@ -17,4 +17,4 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          ./.github/script.sh
+          chmod +x ./.github/script.sh && ./.github/script.sh
