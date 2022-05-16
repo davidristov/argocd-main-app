@@ -5,7 +5,7 @@ git config --global user.name "argocd-bot"
 
 git clone https://$PAT@github.com/davidristov/argocd-config.git
 cd argocd-config 
-export tag=`cat values.yaml | head -n 4 | tail -n 1 | awk '{ print $2}'`
+export tag=`yq e '.global.image.tag' values.yaml`
 sed -i "s/$tag/$GITHUB_SHA/g" values.yaml
 
 git add values.yaml
