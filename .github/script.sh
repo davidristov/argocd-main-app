@@ -5,7 +5,7 @@ git config --global user.name "argocd-bot"
 
 git clone https://$PAT@github.com/davidristov/argocd-config.git
 cd argocd-config
-tag=`git rev-parse origin/main` 
+tag=`git rev-parse origin/main`  
 yq eval ".global.image.tag = \"$tag\"" -i values-staging.yaml
 
 git add values.yaml
