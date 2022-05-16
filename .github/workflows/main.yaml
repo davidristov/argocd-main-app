@@ -2,7 +2,7 @@ name: Bump image tag
 
 on:
   push:
-    branches: main
+    branches: staging
 
 jobs:
   build:
@@ -11,9 +11,11 @@ jobs:
 
     steps:
       - name: Check out
+        if: github.event.pull_request.merged
         uses: actions/checkout@v2
         
       - name: Bump image tag
+        if: github.event.pull_request.merged
         env:
           PAT: ${{ secrets.PAT }}
         run: |
