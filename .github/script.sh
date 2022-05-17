@@ -10,4 +10,4 @@ yq eval ".global.image.tag = \"$tag\"" -i values-staging.yaml
 
 git add values.yaml
 git commit -m "bump staging image version"
-git push origin main
+git push origin main 
