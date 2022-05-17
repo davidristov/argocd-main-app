@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Check out
-        if: github.event.pull_request.merged
         uses: actions/checkout@v2
         
       - name: Bump image tag
-        if: github.event.pull_request.merged
         env:
           PAT: ${{ secrets.PAT }}
         run: |
+          echo "building image"
+          echo "pushing image"
           chmod +x ./.github/script.sh && ./.github/script.sh
