@@ -2,7 +2,7 @@ name: Bump image tag
 
 on:
   push:
-    branches: main
+    branches: staging
 
 jobs:
   build:
@@ -17,6 +17,4 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          echo "building image"
-          echo "pushing image"
           chmod +x ./.github/script.sh && ./.github/script.sh
